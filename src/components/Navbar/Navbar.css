@@ -5,7 +5,7 @@ nav {
   flex-wrap: wrap;
   background: #ffffff;
   font-weight: 600;
-  width: 100%;
+  width: 100vw;
 }
 
 .nav__projectName {

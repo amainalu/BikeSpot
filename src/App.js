@@ -12,6 +12,7 @@ import { getLoggedIn, logout } from "./services/auth";
 import * as PATHS from "./utils/paths";
 import Profile from "./pages/Profile";
 import AddSpot from "./pages/AddSpot";
+import "./App.css";
 
 class App extends React.Component {
   state = {
