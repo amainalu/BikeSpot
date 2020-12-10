@@ -1,3 +1,11 @@
+/* #061261 - blue Sig In /Log In abd Payment (buttons) + font color
+#FFFFFF - white
+#F5F5F5 - less white
+#E0E0E0 -gray
+Delete Account: #AE1A0F
+Change/Add new Spot: #694031
+Submit Route / Pay (buttons): #226325 green */
+
 .App {
   text-align: center;
 }
@@ -35,4 +43,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+}
+
+.Main {
+  max-width: 70vw;
 }

@@ -3,17 +3,18 @@ nav {
   padding: 1em;
   justify-content: space-around;
   flex-wrap: wrap;
-  background: #282c34;
+  background: #ffffff;
   font-weight: 600;
+  width: 100%;
 }
 
 .nav__projectName {
-  color: #e4f9ff;
+  color: #061261;
   text-decoration: none;
 }
 
 .authLink {
-  color: #61dafb;
+  color: #061261;
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
@@ -23,7 +24,7 @@ nav {
 }
 
 .authLink:hover {
-  color: #ffffff;
+  color: #e0e0e0;
 }
 
 .nav-logoutbtn {
@@ -36,7 +37,7 @@ nav {
   border: none;
   border-radius: 2px;
   cursor: pointer;
-  color: #e3f2ff;
+  color: #061261;
   transition: all 0.2s ease-in-out;
   position: sticky;
   top: 0;
