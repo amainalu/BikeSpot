@@ -16,7 +16,7 @@ export default function AddSpot () {
                 <ReactMapGL {...viewport} mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN} onViewportChange={viewport => {setViewport(viewport)}
                 } mapStyle="mapbox://styles/gosiamas/ckij2w5xq3wmw19pm3f1ivrsj"
                 >
-          markers here
+          Markers here
                 </ReactMapGL>
             </div>
         )
