@@ -13,6 +13,7 @@ import * as PATHS from "./utils/paths";
 import Profile from "./pages/Profile";
 import AddSpot from "./pages/AddSpot";
 import "./App.css";
+import Payment from "./pages/Payment.jsx";
 
 class App extends React.Component {
   state = {
@@ -115,6 +116,12 @@ class App extends React.Component {
             exact
             path={PATHS.ADDSPOTPAGE}
             component={AddSpot}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.PAYMENTPAGE}
+            component={Payment}
             user={this.state.user}
           />
         </Switch>
