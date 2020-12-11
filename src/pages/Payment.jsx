@@ -1,7 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
+import PaymentComp from "../components/PaymentComp";
 
-export default class Payment extends Component {
-  render() {
-    return <div>PAYMENT PAGE</div>;
-  }
-}
+const Payment = () => {
+  return (
+    <div>
+      <PaymentComp />
+    </div>
+  );
+};
+
+export default Payment;
