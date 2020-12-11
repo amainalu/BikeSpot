@@ -10,6 +10,9 @@ import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
 import * as PATHS from "./utils/paths";
+import Profile from "./pages/Profile";
+import AddSpot from "./pages/AddSpot";
+import "./App.css";
 
 class App extends React.Component {
   state = {
@@ -100,6 +103,18 @@ class App extends React.Component {
             exact
             path={PATHS.PROTECTEDPAGE}
             component={ProtectedPage}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.PROFILEPAGE}
+            component={Profile}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.ADDSPOTPAGE}
+            component={AddSpot}
             user={this.state.user}
           />
         </Switch>

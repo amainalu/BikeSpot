@@ -1,23 +1,13 @@
 import logo from "../logo.svg";
-import "../App.css";
+import './HomePage.css';
+
 
 function HomePage() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" className="Main">
+    <h1>Welcome to BikeSpot</h1>
+    <br />
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis consectetur iste architecto repellendus sit fuga, est mollitia quibusdam cumque libero officia eos impedit quo fugiat explicabo eius quaerat beatae nam.</p>
     </div>
   );
 }
