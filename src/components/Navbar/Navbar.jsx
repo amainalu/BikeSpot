@@ -8,7 +8,7 @@ const Navbar = props => {
       <Link to="/" className="nav__projectName">
      <img src='../../../Logo.jpg' style={{width: "100px", height:"70px"}}/>
       </Link>
-      <p>BikeSpot</p>
+      <p className="authLink">BikeSpot</p>
       <div className="nav__authLinks">
         {props.user ? (
           <>
