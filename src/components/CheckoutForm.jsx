@@ -11,13 +11,16 @@ export default function CheckoutForm() {
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     window
-      .fetch("REACT_APP_SERVER_URL/payment/:id/create-payment-intent", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-      })
+      .fetch(
+        `${process.env.REACT_APP_SERVER_URL}/payment/:id/create-payment-intent`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+        }
+      )
       .then((res) => {
         return res.json();
       })
@@ -85,12 +88,7 @@ export default function CheckoutForm() {
       )}
       {/* Show a success message upon completion */}
       <p className={succeeded ? "result-message" : "result-message hidden"}>
-        Payment succeeded, see the result in your
-        <a href={`https://dashboard.stripe.com/test/payments`}>
-          {" "}
-          Stripe dashboard.
-        </a>{" "}
-        Refresh the page to pay again.
+        Payment succeeded! You will be re-directed to your profile page.
       </p>
     </form>
   );
