@@ -7,15 +7,33 @@ export default class Profile extends Component {
 
     return (
       <div>
-        <h1>Hi {this.props.user.username}</h1>
+        <br />
+        <h1>Hi {this.props.user.username},</h1>
+        {/* <Link to={"/profile/addSpot"}>
+          <button className="button__submit" type="submit">
+            Add parking
+          </button>
+        </Link> */}
+        <br />
+        <h2>Your booked spaces</h2>
+        <hr />
+        <br />
         <Link to={"/profile/addSpot"}>
-          <button type="submit">Add Route</button>
+          <button className="button__submit" type="submit">
+            Add new parking
+          </button>
         </Link>
         <br />
-        <h3>Your parking spots</h3>
         <br />
         <Link to={"/profile/delete"}>
-          <button type="submit">Delete your account</button>
+          <button
+            className="button__submit"
+            id="redButton"
+            style={{ textDecoration: "none" }}
+            type="submit"
+          >
+            Delete your account
+          </button>
         </Link>
       </div>
     );

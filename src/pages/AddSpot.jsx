@@ -7,8 +7,8 @@ export default function AddSpot(props) {
   const [viewport, setViewport] = useState({
     longitude: 2.1573080086964103,
     latitude: 41.38821563759946,
-    width: "70vw",
-    height: "70vh",
+    width: "60vw",
+    height: "60vh",
     zoom: 14,
   });
 
@@ -27,7 +27,8 @@ export default function AddSpot(props) {
 
   return (
     <div>
-      <h1>Add route page</h1>
+      <h1>Choose your parking spot</h1>
+      <br></br>
       <ReactMapGL
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}

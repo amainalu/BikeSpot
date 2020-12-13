@@ -1,11 +1,12 @@
 nav {
   display: flex;
-  padding: 1em;
+  /* padding: 1em; */
   justify-content: space-around;
   flex-wrap: wrap;
   background: #ffffff;
   font-weight: 600;
   width: 100vw;
+  align-items: center;
 }
 
 .nav__projectName {
@@ -41,6 +42,7 @@ nav {
   transition: all 0.2s ease-in-out;
   position: sticky;
   top: 0;
+  border-radius: 25px;
 }
 
 .nav-logoutbtn:hover {

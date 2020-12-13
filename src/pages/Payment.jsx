@@ -6,7 +6,7 @@ const Payment = (props) => {
 
   return (
     <div>
-      <h3>Hi {props.user.username}</h3>
+      {/* <h3>Hi {props.user.username}</h3> */}
       <p>Pay €15.00 for yout chosen spot here.</p>
       <PaymentComp />
     </div>
