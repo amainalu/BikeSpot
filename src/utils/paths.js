@@ -5,3 +5,4 @@ export const PROTECTEDPAGE = "/protected";
 export const PROFILEPAGE = "/profile";
 export const ADDSPOTPAGE = "/profile/addSpot";
 export const PAYMENTPAGE = "/payment/:id";
+export const DELETEACCOUNT = "/profile/delete";

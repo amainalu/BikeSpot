@@ -14,6 +14,7 @@ import Profile from "./pages/Profile";
 import AddSpot from "./pages/AddSpot";
 import "./App.css";
 import Payment from "./pages/Payment.jsx";
+import DeleteAccount from "./pages/DeleteAccount.jsx";
 
 class App extends React.Component {
   state = {
@@ -122,6 +123,12 @@ class App extends React.Component {
             exact
             path={PATHS.PAYMENTPAGE}
             component={Payment}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.DELETEACCOUNT}
+            component={DeleteAccount}
             user={this.state.user}
           />
         </Switch>
