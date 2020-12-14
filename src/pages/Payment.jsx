@@ -8,7 +8,11 @@ const Payment = (props) => {
     <div>
       {/* <h3>Hi {props.user.username}</h3> */}
       <p>Pay €15.00 for yout chosen spot here.</p>
-      <PaymentComp />
+      <PaymentComp
+        spotId={props.match.params.id}
+        userId={props.user._id}
+        history={props.history}
+      />
     </div>
   );
 };

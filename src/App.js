@@ -130,6 +130,7 @@ class App extends React.Component {
             path={PATHS.DELETEACCOUNT}
             component={DeleteAccount}
             user={this.state.user}
+            authenticate={this.authenticate}
           />
         </Switch>
       </div>

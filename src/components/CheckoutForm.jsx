@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-export default function CheckoutForm() {
+import axios from "axios";
+export default function CheckoutForm({ spotId, history }) {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
@@ -9,22 +10,13 @@ export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
   useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    window
-      .fetch(
-        `${process.env.REACT_APP_SERVER_URL}/payment/:id/create-payment-intent`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-        }
+    axios
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}/payment/${spotId}/create-payment-intent`,
+        { items: [{ id: spotId }] },
+        { headers: { Authorization: localStorage.getItem("accessToken") } }
       )
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
+      .then(({ data }) => {
         setClientSecret(data.clientSecret);
       });
   }, []);
@@ -63,9 +55,19 @@ export default function CheckoutForm() {
       setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
     } else {
+      // if successful, make an axios call to create a transaction, for a date, spot, for a user)
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/payment/success`,
+        { transSpot: spotId },
+        { headers: { Authorization: localStorage.getItem("accessToken") } }
+      );
+      // console.log("data", data);
       setError(null);
       setProcessing(false);
       setSucceeded(true);
+      setTimeout(() => {
+        history.push("/profile");
+      }, 1000);
     }
   };
   return (
@@ -88,8 +90,11 @@ export default function CheckoutForm() {
       )}
       {/* Show a success message upon completion */}
       <p className={succeeded ? "result-message" : "result-message hidden"}>
-        Payment succeeded! You will be re-directed to your profile page.
+        <strong>
+          <span className="green">Payment succeeded!</span>
+        </strong>{" "}
       </p>
+      <p>You will be re-directed to your profile page.</p>
     </form>
   );
 }

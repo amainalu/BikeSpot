@@ -8,7 +8,7 @@ const Navbar = (props) => {
       <Link to="/" className="nav__projectName">
         <img
           src="../../../Logo.jpg"
-          style={{ width: "100px", height: "70px" }}
+          style={{ width: "120px", height: "70px" }}
         />
       </Link>
       <h2>BikeSpot</h2>

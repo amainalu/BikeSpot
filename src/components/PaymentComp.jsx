@@ -9,11 +9,12 @@ import "./PaymentComp.css";
 const promise = loadStripe(
   "pk_test_51Hx6DnCeJH0vCsE1Em7XJWiIwjLJNY44hPhuC9dNdWsE5Oq5xpbrSmoOrMNGcGa4JyMT2S5kTwND3GObTuKhogEM00wgZ8Vaye"
 );
-export default function App() {
+export default function App({ spotId, userId, history }) {
+  //   console.log({ spotId, userId });
   return (
     <div className="App">
       <Elements stripe={promise}>
-        <CheckoutForm />
+        <CheckoutForm spotId={spotId} userId={userId} history={history} />
       </Elements>
     </div>
   );

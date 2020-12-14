@@ -1,7 +1,19 @@
+import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 export default class Profile extends Component {
+  state = {
+    spot: [],
+    transaction: {},
+  };
+
+  componentDidMount = () => {
+    axios.get(`${process.env.REACT_APP_SERVER_URL}/profile`, {
+      user: this.props.user,
+    });
+  };
+
   render() {
     // console.log(this.props.user._id);
 
@@ -9,11 +21,6 @@ export default class Profile extends Component {
       <div>
         <br />
         <h1>Hi {this.props.user.username},</h1>
-        {/* <Link to={"/profile/addSpot"}>
-          <button className="button__submit" type="submit">
-            Add parking
-          </button>
-        </Link> */}
         <br />
         <h2>Your booked spaces</h2>
         <hr />
