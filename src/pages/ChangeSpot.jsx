@@ -42,6 +42,13 @@ export default function AddSpot(props) {
 
   const [selectedSpot, setSelectedSpot] = useState(null);
 
+  handleSpotChange((selectedSpoiId) => {
+    //   axios call with selected spot and chenged spot and user
+    //   to update both spots in database
+    //  after response all ok
+    //   .then to redirect to profile page
+  });
+
   return (
     <div>
       <h1>Change your parking spot</h1>
@@ -93,7 +100,8 @@ export default function AddSpot(props) {
                 alt="red pin icon"
               />
             </Marker>
-        ); })} */}
+          );
+        })} */}
 
         {selectedSpot && (
           <div style={{ background: "red", zIndex: 12 }}>
@@ -101,10 +109,7 @@ export default function AddSpot(props) {
               latitude={selectedSpot.latitude}
               longitude={selectedSpot.longitude}
               closeButton={true}
-              //   closeButton//
-              //   onClose={() => console.log("CLOSE")}
               onClose={() => {
-                //console.log("CLOSING?");
                 setTimeout(() => {
                   setSelectedSpot(null);
                 }, 50);
@@ -117,7 +122,15 @@ export default function AddSpot(props) {
                 {selectedSpot.vacantSpaces === 0 ? (
                   <p>No vacant spaces, choose another spot</p>
                 ) : (
-                  <Link to={`/payment/${selectedSpot._id}`}>Book</Link>
+                  <button
+                    style={{ padding: 0 }}
+                    onClick={(event) => {
+                      //   event.preventDefault();
+                      handleSpotChange(selectedSpot._id);
+                    }}
+                  >
+                    Change
+                  </button>
                 )}
               </div>
             </Popup>
@@ -126,4 +139,8 @@ export default function AddSpot(props) {
       </ReactMapGL>
     </div>
   );
+}
+
+{
+  /* <Link to={`/payment/${selectedSpot._id}`}>Book</Link> */
 }

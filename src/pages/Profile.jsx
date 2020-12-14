@@ -34,12 +34,14 @@ export default class Profile extends Component {
           <h2>Your booked spaces</h2>
           {this.state.transactionData.map((el) => {
             return (
-              <div key={el.transSpot.name}>
+              <div className="yourSpot" key={el.transSpot.name}>
                 <h3>{el.transSpot.name} </h3>
                 <p>{el.transSpot.address}</p>
                 <p>Transaction date: {el.date}</p>
                 <Link to={`/profile/changeSpot/${el.transSpot._id}`}>
-                  <button type="submit">Change your spot</button>
+                  <button className="button__submit" type="submit">
+                    Change your spot
+                  </button>
                 </Link>
               </div>
             );
