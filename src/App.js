@@ -15,6 +15,7 @@ import AddSpot from "./pages/AddSpot";
 import "./App.css";
 import Payment from "./pages/Payment.jsx";
 import DeleteAccount from "./pages/DeleteAccount.jsx";
+import ChangeSpot from "./pages/ChangeSpot";
 
 class App extends React.Component {
   state = {
@@ -129,6 +130,13 @@ class App extends React.Component {
             exact
             path={PATHS.DELETEACCOUNT}
             component={DeleteAccount}
+            user={this.state.user}
+            authenticate={this.authenticate}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.CHANGESPOT}
+            component={ChangeSpot}
             user={this.state.user}
             authenticate={this.authenticate}
           />

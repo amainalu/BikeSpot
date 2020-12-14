@@ -1,3 +1,17 @@
+// import React, { Component } from "react";
+// import MapComp from "../components/MapComp";
+
+// export default class ChangeSpot extends Component {
+//   render() {
+//     return (
+//       <div>
+//         Change Spot Page
+//         <MapComp spotId={this.props.match.params.id} />
+//       </div>
+//     );
+//   }
+// }
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
@@ -14,6 +28,9 @@ export default function AddSpot(props) {
 
   const [allSpots, setAllSpots] = useState([]);
 
+  const bookedSpot = props.match.params.id;
+  console.log(bookedSpot);
+
   useEffect(() => {
     getAllSpots().then((allSpotsFromDB) => {
       // console.log(allSpotsFromDB);
@@ -27,7 +44,7 @@ export default function AddSpot(props) {
 
   return (
     <div>
-      <h1>Choose your parking spot</h1>
+      <h1>Change your parking spot</h1>
       <br></br>
       <ReactMapGL
         {...viewport}
@@ -37,27 +54,46 @@ export default function AddSpot(props) {
         }}
         mapStyle="mapbox://styles/gosiamas/ckij2w5xq3wmw19pm3f1ivrsj"
       >
-        {allSpots.map((spot) => (
-          <Marker
-            key={spot._id}
-            latitude={spot.latitude}
-            longitude={spot.longitude}
-          >
-            <button
-              style={{ padding: 0 }}
-              onClick={(event) => {
-                event.preventDefault();
-                setSelectedSpot(spot);
-              }}
+        {allSpots
+          .filter((spot) => {
+            return spot._id !== bookedSpot;
+          })
+          .map((remainingSpot) => (
+            <Marker
+              key={remainingSpot._id}
+              latitude={remainingSpot.latitude}
+              longitude={remainingSpot.longitude}
+            >
+              <button
+                style={{ padding: 0 }}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setSelectedSpot(remainingSpot);
+                }}
+              >
+                <img
+                  style={{ width: "10px", height: "10px" }}
+                  src="../../bikep__2_.jpg"
+                  alt="parking icon"
+                />
+              </button>
+            </Marker>
+          ))}
+
+        {/* {allSpots.filter((spot) => {
+          spot._id === bookedSpot && (
+            <Marker
+              key={spot._id}
+              latitude={spot.latitude}
+              longitude={spot.longitude}
             >
               <img
                 style={{ width: "10px", height: "10px" }}
-                src="../../bikep__2_.jpg"
-                alt="parking icon"
+                src="../../redpin.png"
+                alt="red pin icon"
               />
-            </button>
-          </Marker>
-        ))}
+            </Marker>
+        ); })} */}
 
         {selectedSpot && (
           <div style={{ background: "red", zIndex: 12 }}>

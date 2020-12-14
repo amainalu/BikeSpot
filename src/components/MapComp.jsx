@@ -14,6 +14,9 @@ export default function AddSpot(props) {
 
   const [allSpots, setAllSpots] = useState([]);
 
+  const bookedSpot = props.spotId;
+  console.log(bookedSpot);
+
   useEffect(() => {
     getAllSpots().then((allSpotsFromDB) => {
       // console.log(allSpotsFromDB);

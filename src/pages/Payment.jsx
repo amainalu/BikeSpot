@@ -2,7 +2,7 @@ import React from "react";
 import PaymentComp from "../components/PaymentComp";
 
 const Payment = (props) => {
-  console.log("Props", props);
+  //   console.log("Props", props);
 
   return (
     <div>

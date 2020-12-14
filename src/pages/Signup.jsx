@@ -26,7 +26,7 @@ export default class Signup extends Component {
     };
     signup(credentials).then((res) => {
       // successful signup
-      console.log(res);
+      // console.log(res);
       if (!res.status) {
         // unsuccessful signup
       }
@@ -63,8 +63,8 @@ export default class Signup extends Component {
             required
             minLength="8"
           />
-         <label htmlFor="input-email">Email</label>
-           <input
+          <label htmlFor="input-email">Email</label>
+          <input
             id="input-email"
             type="text"
             name="email"
@@ -73,7 +73,6 @@ export default class Signup extends Component {
             onChange={this.handleInputChange}
             required
           />
-
 
           {this.state.error && (
             <div className="error-block">

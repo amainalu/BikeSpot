@@ -6,3 +6,4 @@ export const PROFILEPAGE = "/profile";
 export const ADDSPOTPAGE = "/profile/addSpot";
 export const PAYMENTPAGE = "/payment/:id";
 export const DELETEACCOUNT = "/profile/delete";
+export const CHANGESPOT = "/profile/changeSpot/:id";

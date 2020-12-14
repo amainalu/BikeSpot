@@ -9,6 +9,7 @@ const Navbar = (props) => {
         <img
           src="../../../Logo.jpg"
           style={{ width: "120px", height: "70px" }}
+          alt="SpotBike logo"
         />
       </Link>
       <h2>BikeSpot</h2>
