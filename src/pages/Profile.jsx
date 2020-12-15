@@ -31,24 +31,8 @@ export default class Profile extends Component {
         <br />
         <h1>Hi {this.props.user.username},</h1>
         <br />
-        <div>
-          <h2>Your booked spaces</h2>
-          {this.state.transactionData.map((el) => {
-            return (
-              <div className="yourSpot" key={el.transSpot.name}>
-                <h3>{el.transSpot.name} </h3>
-                <p>{el.transSpot.address}</p>
-                <p>Transaction date: {el.date}</p>
-                <Link to={`/profile/changeSpot/${el.transSpot._id}`}>
-                  <button className="button__submit" type="submit">
-                    Change your spot
-                  </button>
-                </Link>
-              </div>
-            );
-          })}
-        </div>
-        <MapComp transData={this.state.transactionData} />
+
+        <MapComp userId={this.props.user._id} />
         <hr />
         <br />
         <Link to={"/profile/addSpot"}>
@@ -57,6 +41,21 @@ export default class Profile extends Component {
           </button>
         </Link>
         <br />
+
+        <div>
+          <h2>Your purchase history</h2>
+          {this.state.transactionData.map((el) => {
+            return (
+              <div className="yourSpot" key={el.transSpot.name}>
+                <h3>{el.transSpot.name} </h3>
+                <p>{el.transSpot.address}</p>
+                <p>Transaction date: {el.date}</p>
+                <p>Transaction ammount: {el.ammount}.00€</p>
+              </div>
+            );
+          })}
+        </div>
+
         <br />
         <Link to={"/profile/delete"}>
           <button

@@ -22,6 +22,7 @@ export default function AddSpot(props) {
   }, []);
 
   //   console.log("ALL SPOTS IN OUR DB", allSpots);\
+  console.log("USER ID!!!!", props.user._id);
 
   const [selectedSpot, setSelectedSpot] = useState(null);
 
@@ -37,27 +38,31 @@ export default function AddSpot(props) {
         }}
         mapStyle="mapbox://styles/gosiamas/ckij2w5xq3wmw19pm3f1ivrsj"
       >
-        {allSpots.map((spot) => (
-          <Marker
-            key={spot._id}
-            latitude={spot.latitude}
-            longitude={spot.longitude}
-          >
-            <button
-              style={{ padding: 0 }}
-              onClick={(event) => {
-                event.preventDefault();
-                setSelectedSpot(spot);
-              }}
+        {allSpots
+          .filter((spot) => {
+            return !spot.userBooking.includes(props.user._id);
+          })
+          .map((spot) => (
+            <Marker
+              key={spot._id}
+              latitude={spot.latitude}
+              longitude={spot.longitude}
             >
-              <img
-                style={{ width: "10px", height: "10px" }}
-                src="../../bikep__2_.jpg"
-                alt="parking icon"
-              />
-            </button>
-          </Marker>
-        ))}
+              <button
+                style={{ padding: 0 }}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setSelectedSpot(spot);
+                }}
+              >
+                <img
+                  style={{ width: "10px", height: "10px" }}
+                  src="../../bikep__2_.jpg"
+                  alt="parking icon"
+                />
+              </button>
+            </Marker>
+          ))}
 
         {selectedSpot && (
           <div style={{ background: "red", zIndex: 12 }}>

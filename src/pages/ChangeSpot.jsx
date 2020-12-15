@@ -30,7 +30,7 @@ export default function ChangeSpot(props) {
   const [allSpots, setAllSpots] = useState([]);
 
   const bookedSpot = props.match.params.id;
-  console.log(bookedSpot);
+  //   console.log(bookedSpot);
 
   useEffect(() => {
     getAllSpots().then((allSpotsFromDB) => {
@@ -50,7 +50,10 @@ export default function ChangeSpot(props) {
         { newSpotId: { selectedSpotId } },
         { headers: { Authorization: localStorage.getItem("accessToken") } }
       )
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data.data);
+        props.history.push("/profile");
+      })
       .catch((err) => err);
   };
   //   axios call with selected spot and chenged spot and user
