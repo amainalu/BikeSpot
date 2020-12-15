@@ -10,6 +10,12 @@ import NormalRoute from "./routing-components/NormalRoute";
 import ProtectedRoute from "./routing-components/ProtectedRoute";
 import { getLoggedIn, logout } from "./services/auth";
 import * as PATHS from "./utils/paths";
+import Profile from "./pages/Profile";
+import AddSpot from "./pages/AddSpot";
+import "./App.css";
+import Payment from "./pages/Payment.jsx";
+import DeleteAccount from "./pages/DeleteAccount.jsx";
+import ChangeSpot from "./pages/ChangeSpot";
 
 class App extends React.Component {
   state = {
@@ -101,6 +107,38 @@ class App extends React.Component {
             path={PATHS.PROTECTEDPAGE}
             component={ProtectedPage}
             user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.PROFILEPAGE}
+            component={Profile}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.ADDSPOTPAGE}
+            component={AddSpot}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.PAYMENTPAGE}
+            component={Payment}
+            user={this.state.user}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.DELETEACCOUNT}
+            component={DeleteAccount}
+            user={this.state.user}
+            authenticate={this.authenticate}
+          />
+          <ProtectedRoute
+            exact
+            path={PATHS.CHANGESPOT}
+            component={ChangeSpot}
+            user={this.state.user}
+            authenticate={this.authenticate}
           />
         </Switch>
       </div>
