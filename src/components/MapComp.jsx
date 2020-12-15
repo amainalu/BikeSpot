@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { getAllSpots } from "../services/spot";
+import LoadingComponent from "./Loading";
 
 export default function AddSpot(props) {
   const [viewport, setViewport] = useState({
@@ -21,14 +22,15 @@ export default function AddSpot(props) {
     });
   }, []);
 
+  // console.log(props.userId);
   //   console.log("ALL SPOTS IN OUR DB", allSpots);\
-  console.log("USER ID!!!!", props.user._id);
 
   const [selectedSpot, setSelectedSpot] = useState(null);
 
   return (
     <div>
-      <h1>Choose your parking spot</h1>
+      <h2>These are your parking spots</h2>
+      <p>You can change your parking spots by clicking on them</p>
       <br></br>
       <ReactMapGL
         {...viewport}
@@ -40,7 +42,7 @@ export default function AddSpot(props) {
       >
         {allSpots
           .filter((spot) => {
-            return !spot.userBooking.includes(props.user._id);
+            return spot.userBooking.includes(props.userId);
           })
           .map((spot) => (
             <Marker
@@ -49,7 +51,7 @@ export default function AddSpot(props) {
               longitude={spot.longitude}
             >
               <button
-                style={{ padding: 0 }}
+                style={{ padding: 0, margin: 0 }}
                 onClick={(event) => {
                   event.preventDefault();
                   setSelectedSpot(spot);
@@ -57,23 +59,19 @@ export default function AddSpot(props) {
               >
                 <img
                   style={{ width: "10px", height: "10px" }}
-                  src="../../bikep__2_.jpg"
+                  src="../../redpin.png"
                   alt="parking icon"
                 />
               </button>
             </Marker>
           ))}
-
         {selectedSpot && (
           <div style={{ background: "red", zIndex: 12 }}>
             <Popup
               latitude={selectedSpot.latitude}
               longitude={selectedSpot.longitude}
               closeButton={true}
-              //   closeButton//
-              //   onClose={() => console.log("CLOSE")}
               onClose={() => {
-                //console.log("CLOSING?");
                 setTimeout(() => {
                   setSelectedSpot(null);
                 }, 50);
@@ -86,7 +84,11 @@ export default function AddSpot(props) {
                 {selectedSpot.vacantSpaces === 0 ? (
                   <p>No vacant spaces, choose another spot</p>
                 ) : (
-                  <Link to={`/payment/${selectedSpot._id}`}>Book</Link>
+                  <Link to={`/profile/changeSpot/${selectedSpot._id}`}>
+                    <button className="button__submit" type="submit">
+                      Change your spot
+                    </button>
+                  </Link>
                 )}
               </div>
             </Popup>

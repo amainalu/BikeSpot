@@ -1,20 +1,24 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
-const Navbar = props => {
+const Navbar = (props) => {
   return (
     <nav>
       <Link to="/" className="nav__projectName">
-     <img src='../../../Logo.jpg' style={{width: "100px", height:"70px"}}/>
+        <img
+          src="../../../Logo.jpg"
+          style={{ width: "120px", height: "70px" }}
+          alt="SpotBike logo"
+        />
       </Link>
-      <p className="authLink">BikeSpot</p>
+      <h2>BikeSpot</h2>
       <div className="nav__authLinks">
         {props.user ? (
           <>
-            <Link to="/protected" className="authLink">
+            {/* <Link to="/protected" className="authLink">
               Protected Page
-            </Link>
+            </Link> */}
             <button className="nav-logoutbtn" onClick={props.handleLogout}>
               Logout
             </button>
