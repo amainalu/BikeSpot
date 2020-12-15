@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import MapComp from "../components/MapComp";
 // import { response } from "../../../server/routes/payment";
 
 export default class Profile extends Component {
@@ -24,7 +25,7 @@ export default class Profile extends Component {
 
   render() {
     // console.log(this.props.user._id);
-
+    // console.log(this.state.transactionData);
     return (
       <div>
         <br />
@@ -47,6 +48,7 @@ export default class Profile extends Component {
             );
           })}
         </div>
+        <MapComp transData={this.state.transactionData} />
         <hr />
         <br />
         <Link to={"/profile/addSpot"}>

@@ -12,25 +12,36 @@ export default function AddSpot(props) {
     zoom: 14,
   });
 
-  const [allSpots, setAllSpots] = useState([]);
+  const [allTransactions, setAllTransactions] = useState([]);
 
-  const bookedSpot = props.spotId;
-  console.log(bookedSpot);
+  //   const bookedSpot = props.spotId;
+  //   console.log(bookedSpot);
+
+  console.log(props.transData);
 
   useEffect(() => {
-    getAllSpots().then((allSpotsFromDB) => {
-      // console.log(allSpotsFromDB);
-      setAllSpots(allSpotsFromDB);
-    });
+    // getAllSpots().then((allSpotsFromDB) => {
+    //   //console.log(allSpotsFromDB);
+    setAllTransactions(props.transData);
+    // });
   }, []);
 
+  //below map and filter for profile spots
+  //   const spotProps = props.transData.map((el) => {
+  //     return el.transSpot;
+  //   });
+  //   console.log(spotProps);
+
+  // .filter((spot) => {
+  //         return spot._id === spotProps._id;
+  //       });
   //   console.log("ALL SPOTS IN OUR DB", allSpots);\
 
-  const [selectedSpot, setSelectedSpot] = useState(null);
+  //const [selectedSpot, setSelectedSpot] = useState(null);
 
   return (
     <div>
-      <h1>Choose your parking spot</h1>
+      <h1>These are your parking spot</h1>
       <br></br>
       <ReactMapGL
         {...viewport}
@@ -40,29 +51,20 @@ export default function AddSpot(props) {
         }}
         mapStyle="mapbox://styles/gosiamas/ckij2w5xq3wmw19pm3f1ivrsj"
       >
-        {allSpots.map((spot) => (
+        {allTransactions.map((trans) => (
           <Marker
-            key={spot._id}
-            latitude={spot.latitude}
-            longitude={spot.longitude}
-          >
-            <button
-              style={{ padding: 0 }}
-              onClick={(event) => {
-                event.preventDefault();
-                setSelectedSpot(spot);
-              }}
-            >
-              <img
-                style={{ width: "10px", height: "10px" }}
-                src="../../bikep__2_.jpg"
-                alt="parking icon"
-              />
-            </button>
-          </Marker>
+            key={trans._id}
+            latitude={trans.transSpot.latitude}
+            longitude={trans.transSpot.longitude}
+          ></Marker>
         ))}
+      </ReactMapGL>
+    </div>
+  );
+}
 
-        {selectedSpot && (
+{
+  /* {selectedSpot && (
           <div style={{ background: "red", zIndex: 12 }}>
             <Popup
               latitude={selectedSpot.latitude}
@@ -80,17 +82,30 @@ export default function AddSpot(props) {
               <div>
                 <h3>{selectedSpot.name}</h3>
                 <p style={{ maxWidth: "30vw" }}>{selectedSpot.address}</p>
-                <p>Vacant spaces {selectedSpot.vacantSpaces}</p>
+                {/* <p>Vacant spaces {selectedSpot.vacantSpaces}</p>
                 {selectedSpot.vacantSpaces === 0 ? (
                   <p>No vacant spaces, choose another spot</p>
                 ) : (
                   <Link to={`/payment/${selectedSpot._id}`}>Book</Link>
-                )}
-              </div>
-            </Popup>
-          </div>
-        )}
-      </ReactMapGL>
-    </div>
-  );
+                )} */
+}
+//     </div>
+// </Popup> */}
+//     </div>
+// )}
+
+{
+  /* <button
+              style={{ padding: 0 }}
+              onClick={(event) => {
+                event.preventDefault();
+                setSelectedSpot(spot);
+              }}
+            >
+              <img
+                style={{ width: "10px", height: "10px" }}
+                src="../../bikep__2_.jpg"
+                alt="parking icon"
+              />
+            </button> */
 }

@@ -16,8 +16,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { getAllSpots } from "../services/spot";
+import axios from "axios";
 
-export default function AddSpot(props) {
+export default function ChangeSpot(props) {
   const [viewport, setViewport] = useState({
     longitude: 2.1573080086964103,
     latitude: 41.38821563759946,
@@ -42,16 +43,25 @@ export default function AddSpot(props) {
 
   const [selectedSpot, setSelectedSpot] = useState(null);
 
-  handleSpotChange((selectedSpoiId) => {
-    //   axios call with selected spot and chenged spot and user
-    //   to update both spots in database
-    //  after response all ok
-    //   .then to redirect to profile page
-  });
+  const handleSpotChange = (selectedSpotId) => {
+    axios
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}/spots/${bookedSpot}`,
+        { newSpotId: { selectedSpotId } },
+        { headers: { Authorization: localStorage.getItem("accessToken") } }
+      )
+      .then((data) => console.log(data))
+      .catch((err) => err);
+  };
+  //   axios call with selected spot and chenged spot and user
+  //   to update both spots in database
+  //  after response all ok
+  //   .then to redirect to profile page
+  //
 
   return (
     <div>
-      <h1>Change your parking spot</h1>
+      <h1>Choose your new parking spot</h1>
       <br></br>
       <ReactMapGL
         {...viewport}
@@ -125,7 +135,8 @@ export default function AddSpot(props) {
                   <button
                     style={{ padding: 0 }}
                     onClick={(event) => {
-                      //   event.preventDefault();
+                      event.preventDefault();
+                      //   console.log(selectedSpot._id);
                       handleSpotChange(selectedSpot._id);
                     }}
                   >
