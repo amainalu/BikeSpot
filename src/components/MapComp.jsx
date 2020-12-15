@@ -29,7 +29,7 @@ export default function AddSpot(props) {
 
   return (
     <div>
-      <h2>These are your parking spot</h2>
+      <h2>These are your parking spots</h2>
       <p>You can change your parking spots by clicking on them</p>
       <br></br>
       <ReactMapGL

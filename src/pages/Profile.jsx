@@ -31,15 +31,14 @@ export default class Profile extends Component {
         <br />
         <h1>Hi {this.props.user.username},</h1>
         <br />
-
-        <MapComp userId={this.props.user._id} />
-        <hr />
-        <br />
         <Link to={"/profile/addSpot"}>
           <button className="button__submit" type="submit">
             Add new parking
           </button>
         </Link>
+        <br />
+        <MapComp userId={this.props.user._id} />
+        <hr />
         <br />
 
         <div>
