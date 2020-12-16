@@ -135,7 +135,7 @@ export default function ChangeSpot(props) {
                   <p>No vacant spaces, choose another spot</p>
                 ) : (
                   <button
-                    style={{ padding: 0 }}
+                    className="button__submit"
                     onClick={(event) => {
                       event.preventDefault();
                       //   console.log(selectedSpot._id);
