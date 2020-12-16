@@ -58,14 +58,16 @@ export default class Profile extends Component {
           <h2>Your purchase history</h2>
           {this.state.transactionData.map((el) => {
             return (
-              <div className="yourSpot" key={el.transSpot.name}>
-                <h3>{el.transSpot.name} </h3>
-                <p>{el.transSpot.address}</p>
-                <p>
+              <div id="yourSpot" key={el.transSpot.name}>
+                <h3 className="lessSpaceBetween"> {el.transSpot.name}</h3>
+                <h4 className="lessSpaceBetween">
                   Transaction date:
                   {" " + this.changeDateFunction(el.date)}
+                </h4>
+                <p className="lessSpaceBetween">{el.transSpot.address}</p>
+                <p className="lessSpaceBetween">
+                  Transaction ammount: {el.ammount}.00€
                 </p>
-                <p>Transaction ammount: {el.ammount}.00€</p>
               </div>
             );
           })}
