@@ -19,7 +19,7 @@ export default function CheckoutForm({ spotId, history }) {
       .then(({ data }) => {
         setClientSecret(data.clientSecret);
       });
-  }, []);
+  }, [spotId]);
   const cardStyle = {
     style: {
       base: {
@@ -56,7 +56,7 @@ export default function CheckoutForm({ spotId, history }) {
       setProcessing(false);
     } else {
       // if successful, make an axios call to create a transaction, for a date, spot, for a user)
-      const { data } = await axios.post(
+      await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/payment/success`,
         { transSpot: spotId },
         { headers: { Authorization: localStorage.getItem("accessToken") } }

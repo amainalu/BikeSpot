@@ -1,9 +1,6 @@
-// import logo from "../logo.svg";
-import "./HomePage.css";
-
 function HomePage() {
   return (
-    <div className="App" className="Main">
+    <div className="App Main">
       <h1>Welcome to BikeSpot</h1>
       <br />
       <p>

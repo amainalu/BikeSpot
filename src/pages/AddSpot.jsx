@@ -86,7 +86,9 @@ export default function AddSpot(props) {
                 {selectedSpot.vacantSpaces === 0 ? (
                   <p>No vacant spaces, choose another spot</p>
                 ) : (
-                  <Link to={`/payment/${selectedSpot._id}`}>Book</Link>
+                  <Link to={`/payment/${selectedSpot._id}`} className="link">
+                    Book
+                  </Link>
                 )}
               </div>
             </Popup>
