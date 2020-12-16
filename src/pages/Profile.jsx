@@ -23,6 +23,19 @@ export default class Profile extends Component {
       .catch((err) => console.log(err.response));
   };
 
+  changeDateFunction(date) {
+    const options = {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: false,
+    };
+    return new Intl.DateTimeFormat("en-US", options).format(this.date);
+  }
+
   render() {
     // console.log(this.props.user._id);
     // console.log(this.state.transactionData);
@@ -31,7 +44,7 @@ export default class Profile extends Component {
         <br />
         <h1>Hi {this.props.user.username},</h1>
         <br />
-        <Link to={"/profile/addSpot"}>
+        <Link to={"/profile/addSpot"} className="link">
           <button className="button__submit" type="submit">
             Add new parking
           </button>
@@ -48,7 +61,10 @@ export default class Profile extends Component {
               <div className="yourSpot" key={el.transSpot.name}>
                 <h3>{el.transSpot.name} </h3>
                 <p>{el.transSpot.address}</p>
-                <p>Transaction date: {el.date}</p>
+                <p>
+                  Transaction date:
+                  {" " + this.changeDateFunction(el.date)}
+                </p>
                 <p>Transaction ammount: {el.ammount}.00€</p>
               </div>
             );
@@ -56,7 +72,7 @@ export default class Profile extends Component {
         </div>
 
         <br />
-        <Link to={"/profile/delete"}>
+        <Link to={"/profile/delete"} className="link">
           <button
             className="button__submit"
             id="redButton"

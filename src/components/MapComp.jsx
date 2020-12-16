@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { getAllSpots } from "../services/spot";
-import LoadingComponent from "./Loading";
 
 export default function AddSpot(props) {
   const [viewport, setViewport] = useState({
@@ -84,7 +83,10 @@ export default function AddSpot(props) {
                 {selectedSpot.vacantSpaces === 0 ? (
                   <p>No vacant spaces, choose another spot</p>
                 ) : (
-                  <Link to={`/profile/changeSpot/${selectedSpot._id}`}>
+                  <Link
+                    to={`/profile/changeSpot/${selectedSpot._id}`}
+                    className="link"
+                  >
                     <button className="button__submit" type="submit">
                       Change your spot
                     </button>
