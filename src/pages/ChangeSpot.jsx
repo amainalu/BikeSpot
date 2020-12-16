@@ -13,7 +13,6 @@
 // }
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { getAllSpots } from "../services/spot";
 import axios from "axios";
@@ -153,8 +152,4 @@ export default function ChangeSpot(props) {
       </ReactMapGL>
     </div>
   );
-}
-
-{
-  /* <Link to={`/payment/${selectedSpot._id}`}>Book</Link> */
 }
