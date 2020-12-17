@@ -98,3 +98,42 @@ button.button__submit {
 .lessSpaceBetween {
   margin: 5px;
 }
+
+.HomePageSection {
+  width: 25vw;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
+    0px 2px 40px 0px rgba(50, 50, 93, 0.1),
+    0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
+  border-radius: 7px;
+  padding: 20px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.HomePageSetUp {
+  margin-top: 2cm;
+  display: flex;
+  flex-direction: row;
+  max-width: 70vw;
+  align-items: center;
+}
+
+.bikeIcon {
+  width: 250px;
+  height: 200px;
+}
+.textNextBike {
+  padding-right: 5vw;
+  padding-top: 4vh;
+  padding-left: 18vw;
+  font-weight: 250;
+  line-height: 1.6rem;
+}
+.titleHomepage {
+  margin-bottom: 10px;
+  font-family: arialRoundedMTBold;
+  font-size: 2.5rem;
+}
