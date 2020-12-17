@@ -6,8 +6,9 @@ const Payment = (props) => {
 
   return (
     <div>
-      {/* <h3>Hi {props.user.username}</h3> */}
-      <p>Pay €15.00 for yout chosen spot here.</p>
+      <h1>Hi {props.user.username}</h1>
+      <br />
+      <h4 style={{ color: "#226325" }}>Pay €15.00 for yout chosen spot here</h4>
       <PaymentComp
         spotId={props.match.params.id}
         userId={props.user._id}

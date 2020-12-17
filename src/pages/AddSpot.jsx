@@ -56,7 +56,7 @@ export default function AddSpot(props) {
                 }}
               >
                 <img
-                  style={{ width: "10px", height: "10px" }}
+                  style={{ width: "13px", height: "19px" }}
                   src="../../bikep__2_.jpg"
                   alt="parking icon"
                 />

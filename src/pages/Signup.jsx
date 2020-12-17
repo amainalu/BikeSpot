@@ -28,7 +28,10 @@ export default class Signup extends Component {
       // successful signup
       // console.log(res);
       if (!res.status) {
-        // unsuccessful signup
+        this.setState({
+          error: res.errorMessage,
+        });
+        return;
       }
       localStorage.setItem("accessToken", res.data.accessToken);
       this.props.authenticate(res.data.user);
@@ -39,7 +42,7 @@ export default class Signup extends Component {
   render() {
     return (
       <div>
-        <h1>Sign Up</h1>
+        <h2>Sign Up</h2>
         <form onSubmit={this.handleFormSubmission} className="auth__form">
           <label htmlFor="input-username">Username</label>
           <input
@@ -77,7 +80,7 @@ export default class Signup extends Component {
           {this.state.error && (
             <div className="error-block">
               <p>There was an error submiting the form:</p>
-              <p>{this.state.error.message}</p>
+              <p>{this.state.error}</p>
             </div>
           )}
 

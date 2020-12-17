@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 // import { Component } from "react";
 
 function Profile2(props) {
@@ -26,10 +27,18 @@ function Profile2(props) {
   return (
     <div>
       <h1>Hi {props.user.username}</h1>
-      <p>You are about to delete your account permanently</p>
-      <p>After you submit you will be redirected to the SignUp page</p>
-      <p>and your account will be deleted from database</p>
       <br />
+      <h2 style={{ color: "red", fontWeight: "bold" }}>
+        You are about to delete your account permanently
+      </h2>
+      <br />
+      <p>After you submit, you will be redirected to the Signup page</p>
+      <p>and your account will be deleted from our database.</p>
+      <img
+        src="../../sad_human-removebg-preview.png"
+        alt="sad human picture"
+        style={{ width: "200px", height: "200px" }}
+      />
       <button
         className="button__submit"
         type="submit"

@@ -91,29 +91,13 @@ export default function ChangeSpot(props) {
                 }}
               >
                 <img
-                  style={{ width: "10px", height: "10px" }}
+                  style={{ width: "13px", height: "19px" }}
                   src="../../bikep__2_.jpg"
                   alt="parking icon"
                 />
               </button>
             </Marker>
           ))}
-
-        {/* {allSpots.filter((spot) => {
-          spot._id === bookedSpot && (
-            <Marker
-              key={spot._id}
-              latitude={spot.latitude}
-              longitude={spot.longitude}
-            >
-              <img
-                style={{ width: "10px", height: "10px" }}
-                src="../../redpin.png"
-                alt="red pin icon"
-              />
-            </Marker>
-          );
-        })} */}
 
         {selectedSpot && (
           <div style={{ background: "red", zIndex: 12 }}>

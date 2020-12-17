@@ -12,7 +12,15 @@ const Navbar = (props) => {
           alt="SpotBike logo"
         />
       </Link>
-      <h2>BikeSpot</h2>
+      <h1
+        style={{
+          fontFamily: "arialRoundedMTBold",
+          fontSize: "1.8rem",
+          marginRight: "2vw",
+        }}
+      >
+        BikeSpot
+      </h1>
       <div className="nav__authLinks">
         {props.user ? (
           <>
