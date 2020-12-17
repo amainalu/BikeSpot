@@ -14,7 +14,7 @@ const Navbar = (props) => {
       </Link>
       <h1
         style={{
-          fontFamily: "arialRoundedMTBold",
+          fontFamily: "M PLUS Rounded 1c",
           fontSize: "1.8rem",
           marginRight: "2vw",
         }}

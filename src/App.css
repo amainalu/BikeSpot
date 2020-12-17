@@ -6,6 +6,8 @@ Delete Account: #AE1A0F red
 Change/Add new Spot: #694031 brown
 Submit Route / Pay (buttons): #226325 green */
 
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&family=Roboto:wght@500&display=swap");
+
 .App {
   text-align: center;
   display: flex;
@@ -134,6 +136,7 @@ button.button__submit {
 }
 .titleHomepage {
   margin-bottom: 10px;
-  font-family: arialRoundedMTBold;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  /* font-family: arialRoundedMTBold; */
   font-size: 2.5rem;
 }
