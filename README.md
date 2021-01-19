@@ -4,7 +4,7 @@ Have you ever wanted to move with your bike through barcelona but you are concer
 BikeSpot is a network of parkings that allow you to freely move in Barcelona city and not having to be worry about your bike safety.
 
 **[- Link to website -](https://bikespot.netlify.app/)**
-link to the website - 
+
 
 ### Portfolio Project
 
