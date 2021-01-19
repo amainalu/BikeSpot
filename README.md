@@ -1,7 +1,10 @@
 
 <a href="https://bikespot.netlify.app/">
-  <img height="100" src="/public/favicon.png">
+  <img height="100" src="/public/bike_700x575-removebg-preview.png">
 </a>
+
+
+
 # BikeSpot
 
 
